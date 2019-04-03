@@ -1,4 +1,5 @@
 const selectionSort = require('./selection/selectionSort');
+const selectionSortRecursive = require('./selection/selectionSortRecursive');
 /**
  * 
  * @param {String} type 
@@ -21,11 +22,16 @@ function doSort(type, array, cb) {
             cb();
             break;
         }
+        case 'selectionSortRecursive': {
+            selectionSortRecursive(workingArray);
+            cb();
+            break;
+        }
     }
 }
 
 // set up the array and fill it
-const size = 40000;
+const size = 7000;
 // randomly generated N = 40 length array 0 <= A[N] <= 39
 const randomArray = Array.from({length: size}, () => Math.floor(Math.random() * size));
 
@@ -47,4 +53,13 @@ doSort('builtIn', randomArray, () => {
     const end = process.hrtime(start2)
     // print out the time it took
     console.log(`BuiltIn Sort took ${end[0]} seconds ${end[1] / 1000000} milliseconds`);
+});
+
+// start the timer!
+const start3 = process.hrtime();
+doSort('selectionSortRecursive', randomArray, () => {
+    // now, in this callback function, stop the timer
+    const end = process.hrtime(start3)
+    // print out the time it took
+    console.log(`Recursive Selection Sort took ${end[0]} seconds ${end[1] / 1000000} milliseconds`);
 });
