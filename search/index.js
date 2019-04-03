@@ -40,28 +40,30 @@ function doSearch(type, array, item, cb) {
 const size = 10000000;
 const massiveArray = fillRange(0, size -1);
 // start the timer!
-const start = process.hrtime();
+const start1 = process.hrtime();
 
 // run the function to do the search
 doSearch('binary', massiveArray, 5555555, () => {
     // now, in this callback function, stop the timer
-    const end = process.hrtime(start)
+    const end = process.hrtime(start1)
     // print out the time it took
     console.log(`Binary search took ${end[0]} seconds ${end[1] / 1000000} milliseconds`);
 });
-
+// start the timer!
+const start2 = process.hrtime();
 // run the function to do the search
 doSearch('forLoop', massiveArray, 5555555, () => {
     // now, in this callback function, stop the timer
-    const end = process.hrtime(start)
+    const end = process.hrtime(start2)
     // print out the time it took
     console.log(`For loop search took ${end[0]} seconds ${end[1] / 1000000} milliseconds`);
 });
-
+// start the timer!
+const start3 = process.hrtime();
 // run the function to do the search
 doSearch('builtIn', massiveArray, 5555555, () => {
     // now, in this callback function, stop the timer
-    const end = process.hrtime(start)
+    const end = process.hrtime(start3)
     // print out the time it took
     console.log(`Built in search took ${end[0]} seconds ${end[1] / 1000000} milliseconds`);
 });
