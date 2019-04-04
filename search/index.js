@@ -1,5 +1,6 @@
 // require our binary search module
 const binarySearch = require('./binary/binarySearch');
+const binarySearchRecursive = require('./binary/binarySearchRecursive');
 
 // function to create a large sequential array
 const fillRange = (start, end) => {
@@ -16,6 +17,10 @@ const fillRange = (start, end) => {
   */
 function doSearch(type, array, item, cb) {
     switch(type) {
+        case 'binarySearchRecursive':
+            console.log(binarySearchRecursive(array, item));
+            cb();
+            break
         case 'binary':
             console.log(binarySearch(array, item))
             cb();
@@ -66,4 +71,13 @@ doSearch('builtIn', massiveArray, 5555555, () => {
     const end = process.hrtime(start3)
     // print out the time it took
     console.log(`Built in search took ${end[0]} seconds ${end[1] / 1000000} milliseconds`);
+});
+// start the timer!
+const start4 = process.hrtime();
+// run the function to do the search
+doSearch('binarySearchRecursive', massiveArray, 5555555, () => {
+    // now, in this callback function, stop the timer
+    const end = process.hrtime(start4)
+    // print out the time it took
+    console.log(`Recursive binary search took ${end[0]} seconds ${end[1] / 1000000} milliseconds`);
 });
