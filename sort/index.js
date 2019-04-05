@@ -1,5 +1,6 @@
 const selectionSort = require('./selection/selectionSort');
 const selectionSortRecursive = require('./selection/selectionSortRecursive');
+const quickSort = require('./quicksort/quicksort');
 /**
  * 
  * @param {String} type 
@@ -24,6 +25,11 @@ function doSort(type, array, cb) {
         }
         case 'selectionSortRecursive': {
             selectionSortRecursive(workingArray);
+            cb();
+            break;
+        }
+        case 'quickSort': {
+            quickSort(workingArray);
             cb();
             break;
         }
@@ -62,4 +68,13 @@ doSort('selectionSortRecursive', randomArray, () => {
     const end = process.hrtime(start3)
     // print out the time it took
     console.log(`Recursive Selection Sort took ${end[0]} seconds ${end[1] / 1000000} milliseconds`);
+});
+
+// start the timer!
+const start4 = process.hrtime();
+doSort('quickSort', randomArray, () => {
+    // now, in this callback function, stop the timer
+    const end = process.hrtime(start4)
+    // print out the time it took
+    console.log(`Quick Sort took ${end[0]} seconds ${end[1] / 1000000} milliseconds`);
 });
