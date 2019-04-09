@@ -18,32 +18,33 @@ class Queue {
         return this.data.length;
     }
 }
+module.exports = Queue;
 
-const myQueue = new Queue();
+// const myQueue = new Queue();
 
-console.log('Add 3 people to the queue...')
+// console.log('Add 3 people to the queue...')
 
-myQueue.add('Stephen');
-myQueue.add('Paul');
-myQueue.add('Simon');
+// myQueue.add('Stephen');
+// myQueue.add('Paul');
+// myQueue.add('Simon');
 
-console.log(`My Queue length is ${myQueue.size()}`);
+// console.log(`My Queue length is ${myQueue.size()}`);
 
 
-console.log('Add some more...');
+// console.log('Add some more...');
 
-myQueue.add('Jane');
-myQueue.add('Joan');
-myQueue.add('Tim');
+// myQueue.add('Jane');
+// myQueue.add('Joan');
+// myQueue.add('Tim');
 
-console.log(`My Queue length is ${myQueue.size()}`);
-console.log(`Next person in the queue is ${myQueue.last()}`);
-console.log(`Last person in the queue is ${myQueue.first()}`)
+// console.log(`My Queue length is ${myQueue.size()}`);
+// console.log(`Next person in the queue is ${myQueue.last()}`);
+// console.log(`Last person in the queue is ${myQueue.first()}`)
 
-console.log('Remove the next person from the queue...')
-myQueue.remove();
+// console.log('Remove the next person from the queue...')
+// myQueue.remove();
 
-console.log(`My Queue length is ${myQueue.size()}`);
+// console.log(`My Queue length is ${myQueue.size()}`);
 
-console.log(`Next person in the queue is ${myQueue.last()}`);
-console.log(`Last person in the queue is ${myQueue.first()}`)
+// console.log(`Next person in the queue is ${myQueue.last()}`);
+// console.log(`Last person in the queue is ${myQueue.first()}`)
